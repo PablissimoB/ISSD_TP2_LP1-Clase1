@@ -64,7 +64,7 @@ namespace primerApp
             Console.WriteLine("Hola desde metodo ejecutado por instancia de clase Program");
         }
 
-        //Funcion ejercitacion
+        //Funcion ejercitacion Potencia
         static int potencia (int basePotencia, int exponente)
         {
             int resultado = 1;
@@ -78,7 +78,7 @@ namespace primerApp
         }
 
         //Funcion ejercitacion
-        static int factorial( int numero)
+        static void factorial( int numero)
         {
             int resultado = 1;
             //uso de for
@@ -87,7 +87,7 @@ namespace primerApp
                 resultado = resultado * i;
             }
 
-            return resultado;
+            Console.WriteLine($"El factorial de {numero} es " + resultado);
         }
 
         static void Main(string[] args)
@@ -133,7 +133,6 @@ namespace primerApp
                 anioNacimiento -= 1;
             }
             Console.WriteLine("El año de nacimiento es " + anioNacimiento);
-            Console.WriteLine("El factorial de 5 es "+factorial(5));
             Console.WriteLine("La potencia de 3 elevado a la 3 es "+potencia(3,3));
             bool verificador = true;
             int edad = persona.edad;
