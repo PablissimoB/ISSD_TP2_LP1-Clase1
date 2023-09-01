@@ -39,7 +39,7 @@ namespace primerApp
         }
 
         // Método para saludar
-        public void Saludar()
+        public void saludar()
         {
             Console.WriteLine($"Hola, soy {nombre}.");
         }
@@ -49,17 +49,17 @@ namespace primerApp
     class Program
     {
         //funcion que recibe un argumento
-        string Saludo(string arg)
+        string saludo(string arg)
         {
             return "Hola desde funcion de "+arg;
         }
         //Funcion estatica
-        static string SaludoEstatico()
+        static string saludoEstatico()
         {
             return "Hola desde funcion estatico";
         }
         //Metodo
-        void Saludar()
+        void saludar()
         {
             Console.WriteLine("Hola desde metodo ejecutado por instancia de clase Program");
         }
@@ -76,7 +76,19 @@ namespace primerApp
 
             return resultado;
         }
-  
+
+        //Funcion ejercitacion
+        static int factorial( int numero)
+        {
+            int resultado = 1;
+            //uso de for
+            for (int i = 1; i <= numero; i++)
+            {
+                resultado = resultado * i;
+            }
+
+            return resultado;
+        }
 
         static void Main(string[] args)
         {
@@ -85,11 +97,11 @@ namespace primerApp
             Institucion institucion = new Institucion("ISSD", fecha);
             Console.WriteLine(institucion.cantidadAnios());
             Console.WriteLine("Hola Mundo");//Saludo Harcodeado
-            Console.WriteLine(programa.Saludo("objetoProgram"));//Saludo desde impresion de metodo de objetoProgram
-            Console.WriteLine(SaludoEstatico());//Saludo desde impresion de funcion estatico
-            programa.Saludar();//Saludo desde metodo de objeto programa
+            Console.WriteLine(programa.saludo("objetoProgram"));//Saludo desde impresion de metodo de objetoProgram
+            Console.WriteLine(saludoEstatico());//Saludo desde impresion de funcion estatico
+            programa.saludar();//Saludo desde metodo de objeto programa
             Persona persona = new Persona("Pedro", 25);
-            persona.Saludar();//saludo desde metodo de objeto persona
+            persona.saludar();//saludo desde metodo de objeto persona
             // uso de if
             if (persona.nombre == "Juan")
             {
@@ -105,7 +117,7 @@ namespace primerApp
             }
             //uso de operador ternario
             string mayorDe18 = persona.edad > 18 ? "es mayor" : "es menor";
-            Console.WriteLine(mayorDe18);
+            Console.WriteLine("La persona "+mayorDe18);
             //uso de switch
             switch (persona.nombre)
             {
@@ -113,15 +125,16 @@ namespace primerApp
                 case "Pedro": Console.WriteLine("Hola Pedro"); break;
                 case "default": Console.WriteLine("Hola Persona no identificada"); break;
             }//saludo desde switch
-            string saludo = persona.nombre == "Pablo" ? "Hola Pablo" : "Hola " + persona.nombre;
+            string saludo = persona.nombre == "Pablo" ? "Hola Pablo desde ternario" : "Hola desde ternario" + persona.nombre;
             Console.WriteLine(saludo);//saludo desde ternario
             int anioNacimiento = DateTime.Now.Year;
-            Console.WriteLine(anioNacimiento);
             for (int i = 0; i < persona.edad; i++)
             {
                 anioNacimiento -= 1;
             }
-            Console.WriteLine(anioNacimiento);
+            Console.WriteLine("El año de nacimiento es " + anioNacimiento);
+            Console.WriteLine("El factorial de 5 es "+factorial(5));
+            Console.WriteLine("La potencia de 3 elevado a la 3 es "+potencia(3,3));
             bool verificador = true;
             int edad = persona.edad;
             int contadorLustros = 0;
@@ -129,12 +142,11 @@ namespace primerApp
             while (verificador)
             {
                 contadorLustros++;
-                Console.WriteLine(edad);
                 edad -= 5;
                 if (edad == 0)
                 {
                     verificador = false;
-                    Console.WriteLine(contadorLustros);
+                    Console.WriteLine("La cantidad de lustros es de " + contadorLustros);
                 }
             }
             //uso de foreach con argumentos del metodo Main
